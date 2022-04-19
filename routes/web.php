@@ -28,5 +28,5 @@ Route::middleware([
 });
 
 
-Route::get('/', 'App\Http\Controllers\AddressController@index');
-Route::get('/export', 'App\Http\Controllers\AddressController@csvDownload')->name('export');
+Route::get('/', 'App\Http\Controllers\PostController@index');
+Route::get('/export', 'App\Http\Controllers\PostController@csvDownload')->name('export');

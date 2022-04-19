@@ -27,10 +27,6 @@
           <input type="text" name="city" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 mb-2" placeholder="市">
           <input type="text" name="address" id="name" class="shadow appearance-none border rounded w-full py-2 px-3" placeholder="町名・番地">
         </div>
-        <div class="mb-8">
-          <label for="name" class="block mb-2 font-bold">企業名：</label>
-          <input type="text" name="company" id="name" class="shadow appearance-none border rounded w-full py-2 px-3">
-        </div>
         <div class="flex justify-center">
           <button type="submit" class="hover:opacity-75 bg-blue-500 font-semibold text-white py-2 px-4 rounded">送信</button>
         </div>
@@ -58,41 +54,35 @@
             <th class="border border-b-4">
               町名・番地
             </th>
-            <th class="border border-b-4">
-              企業名
-            </th>
           </tr>
         </thead>
         <tbody>
-        @foreach ($addresses as $address)
+        @foreach ($posts as $post)
           <tr class="hover:bg-grey-lighter">
             <td class="border">
-              {{$address->id}}
+              {{$post->id}}
             </td>
             <td class="border">
-              {{$address->name}}
+              {{$post->name}}
             </td>
             <td class="border">
-              {{$address->zip_code}}
+              {{$post->zip_code}}
             </td>
             <td class="border">
-              {{$address->prefecture}}
+              {{$post->prefecture}}
             </td>
             <td class="border">
-              {{$address->city}}
+              {{$post->city}}
             </td>
             <td class="border">
-              {{$address->address}}
-            </td>
-            <td class="border">
-              {{$address->company}}
+              {{$post->address}}
             </td>
           </tr>
         @endforeach
         </tbody>
       </table>
       <div class="mt-5">
-        {{ $addresses->appends(request()->except('page'))->links() }}
+        {{ $posts->appends(request()->except('page'))->links() }}
       </div>
       <div class="flex justify-center mt-10">
       <form method="GET" action="{{ route('export') }}">

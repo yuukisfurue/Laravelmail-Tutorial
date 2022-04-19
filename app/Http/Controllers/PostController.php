@@ -3,36 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Address;
+use App\Models\Post;
 
-class AddressController extends Controller
+class PostController extends Controller
 {
     public function index(Request $request) {
-        $addresses = Address::search()->paginate(15);
+        $posts = Post::search()->paginate(10);
         $search_params = $request->only([
             'name',
             'zip_code',
             'prefecture',
             'city',
-            'address',
-            'company'
+            'address'
         ]);
 
         return view('index', [
-            'addresses' => $addresses,
+            'posts' => $posts,
             'search_params' => $search_params
         ]);
     }
 
     public function csvDownload() {
-        $addresses = Address::search()->get();
+        $posts = Post::search()->get();
 
         $headers = [
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=file.csv"
         ];
 
-        $callback = function() use($addresses) {
+        $callback = function() use($posts) {
             $handle = fopen('php://output', 'w');
 
             $columns = [
@@ -41,23 +40,21 @@ class AddressController extends Controller
                 'zip_code',
                 'prefecture',
                 'city',
-                'address',
-                'company'
+                'address'
             ];
 
             mb_convert_variables('SJIS-win', 'UTF-8', $columns);
 
             fputcsv($handle, $columns);
 
-            foreach($addresses as $address) {
+            foreach($posts as $post) {
                 $csv = [
-                    $address->id,
-                    $address->name,
-                    $address->zip_code,
-                    $address->prefecture,
-                    $address->city,
-                    $address->address,
-                    $address->company
+                    $post->id,
+                    $post->name,
+                    $post->zip_code,
+                    $post->prefecture,
+                    $post->city,
+                    $post->address
                 ];
 
                 mb_convert_variables('SJIS-win', 'UTF-8', $csv);

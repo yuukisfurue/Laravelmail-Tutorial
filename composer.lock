@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f101a519c2fea8e0a72f12f0d7fcb60",
+    "content-hash": "9e09c04c82f7dfe9b194ca5953898524",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3336,6 +3336,56 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "seus31/zip-code-auto-fill",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/seus31/zip-code-auto-fill.git",
+                "reference": "5213291213d35c37ffa324e7d9bf427e73439ebb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/seus31/zip-code-auto-fill/zipball/5213291213d35c37ffa324e7d9bf427e73439ebb",
+                "reference": "5213291213d35c37ffa324e7d9bf427e73439ebb",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "8.*",
+                "livewire/livewire": "^2.3",
+                "php": "^7.3|^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Seus31\\ZipCodeAutoFill\\Providers\\ZipCodeAutoFillServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Seus31\\ZipCodeAutoFill\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SEUS31",
+                    "email": "develop@seusthreeone.com"
+                }
+            ],
+            "description": "Livewireでzipcodeの自動入力を実装する。",
+            "support": {
+                "issues": "https://github.com/seus31/zip-code-auto-fill/issues",
+                "source": "https://github.com/seus31/zip-code-auto-fill/tree/master"
+            },
+            "time": "2021-03-19T08:42:46+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8126,12 +8176,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "seus31/zip-code-auto-fill": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.3.0"
 }
