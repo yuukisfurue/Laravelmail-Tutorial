@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Input;
+use App\Http\Livewire\Confirm;
+use App\Http\Livewire\Complete;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +30,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
+Route::get('/home', Input::class)->name('home'); 
+Route::get('/confirm', Confirm::class)->name('confirm'); 
+Route::get('/complete', Complete::class)->name('complete'); 
 Route::get('/', 'App\Http\Controllers\PostController@index');
 Route::get('/export', 'App\Http\Controllers\PostController@csvDownload')->name('export');
